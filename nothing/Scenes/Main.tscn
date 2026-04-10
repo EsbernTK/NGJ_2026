@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://benmxghwa1t21"]
+
+[ext_resource type="Script" uid="uid://b10ny5yrkctm3" path="res://Scripts/Main.gd" id="1_idj7w"]
+[ext_resource type="PackedScene" uid="uid://ccuioo8a74pw1" path="res://Objects/Particle.tscn" id="1_r150o"]
+
+[node name="Main" type="Node2D" unique_id=638370175]
+script = ExtResource("1_idj7w")
+particle_scene = ExtResource("1_r150o")
+
+[node name="Particle" parent="." unique_id=195041873 instance=ExtResource("1_r150o")]
+position = Vector2(250, 306)
+direction = Vector2(1, 0)
+
+[node name="Particle2" parent="." unique_id=1605644274 instance=ExtResource("1_r150o")]
+position = Vector2(575, 305)
+direction = Vector2(-1, 0)

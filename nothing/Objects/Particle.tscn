@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ccuioo8a74pw1"]
+
+[ext_resource type="Script" uid="uid://cgpixqiolp0af" path="res://Scripts/Particle.gd" id="1_d6jn2"]
+[ext_resource type="Texture2D" uid="uid://ckvyybnkbbkfy" path="res://icon.svg" id="1_vlej3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6jn2"]
+
+[node name="Particle" type="Node2D" unique_id=195041873]
+script = ExtResource("1_d6jn2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1590545100]
+texture = ExtResource("1_vlej3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1047888950]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=72862224]
+scale = Vector2(6.5, 6.5)
+shape = SubResource("RectangleShape2D_d6jn2")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
