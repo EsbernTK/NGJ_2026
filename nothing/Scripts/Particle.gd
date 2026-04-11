@@ -30,7 +30,7 @@ var is_coliding: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Particle created")
+	#print("Particle created")
 	viewport_size = get_viewport_rect().size
 	sprite = get_node("Sprite2D")
 	var texture = sprite.texture as GradientTexture2D
@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 	
 	if position.y > viewport_size.y*top_margin or position.x < -viewport_size.x*margin or position.x > viewport_size.x*top_margin or position.y < -viewport_size.y*margin:
 		main_scene.add_escaped_particles(1)
-		print("Particle removed")
+		#print("Particle removed")
 		queue_free()
 		
 	
@@ -80,4 +80,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			var flash_instance = flash.instantiate()
 			flash_instance.position = middle
 			main_scene.add_child(flash_instance)
+			#main_scene.annihilated_particles += 1
+			main_scene.add_annihilated_particles(1)
 		

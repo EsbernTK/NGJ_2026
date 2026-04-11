@@ -18,6 +18,7 @@ radius = 16.27882
 
 [node name="Particle" type="Node2D" unique_id=195041873]
 script = ExtResource("1_d6jn2")
+up_ramp = 0.2
 flash = ExtResource("2_d6jn2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1590545100]

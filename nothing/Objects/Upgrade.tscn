@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://babyygkdetcw0"]
+
+[ext_resource type="Texture2D" uid="uid://ckvyybnkbbkfy" path="res://icon.svg" id="1_0yiuc"]
+[ext_resource type="Script" uid="uid://1kqxwopesvto" path="res://Scripts/SkillNode.gd" id="2_27kix"]
+
+[node name="Upgrade" type="TextureButton" unique_id=2141197770]
+z_index = 1
+z_as_relative = false
+offset_right = 77.0
+offset_bottom = 77.0
+texture_normal = ExtResource("1_0yiuc")
+texture_pressed = ExtResource("1_0yiuc")
+texture_hover = ExtResource("1_0yiuc")
+texture_disabled = ExtResource("1_0yiuc")
+texture_focused = ExtResource("1_0yiuc")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_27kix")
+
+[node name="SkillLevel" type="Label" parent="." unique_id=1089754192]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 54.0
+offset_right = 77.0
+offset_bottom = 77.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="SkillBranch" type="Line2D" parent="." unique_id=661912530]
+z_as_relative = false
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

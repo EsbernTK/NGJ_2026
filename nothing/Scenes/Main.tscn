@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccuioo8a74pw1" path="res://Objects/Particle.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://4wv8kx6hf88f" path="res://Objects/AntiParticle.tscn" id="3_pbw6q"]
 [ext_resource type="Shader" uid="uid://bjsf3kysame7w" path="res://Shaders/Field.tres" id="3_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://cnegt77ikel76" path="res://Scenes/UpgradeTree.tscn" id="5_pbw6q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kln2b"]
 shader = ExtResource("3_rgh2o")
@@ -23,11 +24,35 @@ position = Vector2(640, 360)
 scale = Vector2(1280, 720)
 texture = SubResource("CanvasTexture_rgh2o")
 
-[node name="ScoreLabel" type="RichTextLabel" parent="." unique_id=317002895]
-offset_right = 52.0
-offset_bottom = 23.0
+[node name="Scores" type="Node2D" parent="." unique_id=76170220]
+position = Vector2(680, 20)
+
+[node name="EscapedScoreLabel" type="RichTextLabel" parent="Scores" unique_id=317002895]
+offset_left = -77.0
+offset_top = -1.0
+offset_right = 87.0
+offset_bottom = 33.0
 text = "Escaped Particles: "
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnnihilatedScoreLabel" type="RichTextLabel" parent="Scores" unique_id=164645351]
+offset_left = -101.0
+offset_top = 24.0
+offset_right = 107.0
+offset_bottom = 58.0
+text = "Annihilated Particles: "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeTree" parent="." unique_id=1332004141 instance=ExtResource("5_pbw6q")]
+offset_left = -1.0
+offset_top = -2.0
+offset_right = -1.0
+offset_bottom = -2.0

@@ -2,20 +2,25 @@ extends Node2D
 class_name Main
 
 var escaped_particles: int = 0
+var annihilated_particles: int = 0
 
 @export var particle_scene: PackedScene
 @export var anti_particle_scene: PackedScene
 
 @onready var field: Sprite2D = get_node("Field")
 
-@onready var scoreLabel: RichTextLabel = get_node("ScoreLabel")
+@onready var escaped_score_label: RichTextLabel = get_node("Scores/EscapedScoreLabel")
+@onready var annihilated_score_label: RichTextLabel = get_node("Scores/AnnihilatedScoreLabel")
 
 var is_pressed: bool = false
 
 var base_strength: float = 0.0
+var base_scale: float = 2.5
+var target_scale: float = 2.5
 
 var spawntime: float = 0.0
-var max_spawntime: float = 1.0
+var spawn_per_second:float = 60.0
+var max_spawntime: float = 1 / spawn_per_second
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,16 +56,25 @@ func _spawn_particle_pair(particle_position: Vector2) -> void:
 
 func _process(delta: float) -> void:
 	spawntime += delta
-	if spawntime >= max_spawntime and max_spawntime > 0.0:
-		var particle_position = Vector2(randf_range(0, 1), randf_range(0, 1)) * get_viewport_rect().size
-		_spawn_particle_pair(particle_position)
-		spawntime = 0.0
+	if max_spawntime > 0.0:
+		while spawntime/max_spawntime >= 1.0:
+			var particle_position = Vector2(randf_range(0, 1), randf_range(0, 1)) * get_viewport_rect().size
+			_spawn_particle_pair(particle_position)
+			spawntime = max(spawntime - max_spawntime, 0)
+			
+		
+	if base_scale < target_scale:
+		base_scale += (target_scale - base_scale) * delta
+		field.set_instance_shader_parameter("Scale", base_scale)
+		
 	
 func add_escaped_particles(s: int) -> void:
 	escaped_particles += s
-	scoreLabel.text = "Escaped Particles: " + str(escaped_particles)
-	
-		
+	escaped_score_label.text = "Escaped Particles: " + str(escaped_particles)
+
+func add_annihilated_particles(s: int) -> void:
+	annihilated_particles += s
+	annihilated_score_label.text = "Annihilated Particles: " + str(annihilated_particles)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -76,9 +90,11 @@ func _input(event: InputEvent) -> void:
 		if mouse_event.is_pressed() and !is_pressed:
 			is_pressed = true
 			base_strength += 0.01
+			target_scale += 0.01
 			
 			_spawn_particle_pair(particle_position)
 		if event.is_released():
 			is_pressed = false
 			#field.material.set_shader_parameter("target", Vector2(-1,-1))
 			field.set_instance_shader_parameter("Strength", base_strength)
+			field.set_instance_shader_parameter("Scale", base_scale)

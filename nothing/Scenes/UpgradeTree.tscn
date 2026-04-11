@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cnegt77ikel76"]
+
+[ext_resource type="PackedScene" uid="uid://babyygkdetcw0" path="res://Objects/Upgrade.tscn" id="1_yxj2r"]
+
+[node name="UpgradeTree" type="Control" unique_id=1332004141]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1392010042]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 721.0
+color = Color(0.23753911, 0.23753914, 0.23753908, 1)
+
+[node name="Upgrade2" parent="." unique_id=2141197770 instance=ExtResource("1_yxj2r")]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 194.0
+offset_right = 520.0
+offset_bottom = 271.0
+type = 0
+
+[node name="Upgrade2" parent="Upgrade2" unique_id=1794527656 instance=ExtResource("1_yxj2r")]
+layout_mode = 0
+offset_left = -104.0
+offset_top = 124.0
+offset_right = -27.0
+offset_bottom = 201.0
+
+[node name="Upgrade" parent="Upgrade2/Upgrade2" unique_id=889360768 instance=ExtResource("1_yxj2r")]
+layout_mode = 0
+offset_left = -72.0
+offset_top = 135.0
+offset_right = 5.0
+offset_bottom = 212.0

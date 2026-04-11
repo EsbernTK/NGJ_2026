@@ -162,4 +162,4 @@ func _get_global_code(mode):
 
 
 func _get_code(input_vars, output_vars, mode, type):
-	return output_vars[0] + " = cnoise(vec3((%s.xy + %s.xy) * %s, %s)) * 0.5 + 0.5;" % [input_vars[0], input_vars[1], input_vars[2], input_vars[3]]
+	return output_vars[0] + " = cnoise(vec3(((%s.xy - vec2(0.5f,0.5f)) + %s.xy) * %s, %s)) * 0.5 + 0.5;" % [input_vars[0], input_vars[1], input_vars[2], input_vars[3]]
