@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://42sab3fe8vlj"]
+
+[ext_resource type="Script" uid="uid://deyo417lfhbyx" path="res://Scripts/Flash.gd" id="1_14nya"]
+
+[sub_resource type="Gradient" id="Gradient_vlej3"]
+offsets = PackedFloat32Array(0, 0.30120483, 0.6686747)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.67567563, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0g2a6"]
+gradient = SubResource("Gradient_vlej3")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[node name="Flash" type="Node2D" unique_id=945331308]
+script = ExtResource("1_14nya")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1918799698]
+texture = SubResource("GradientTexture2D_0g2a6")

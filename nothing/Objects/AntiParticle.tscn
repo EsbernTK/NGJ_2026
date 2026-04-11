@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://ccuioo8a74pw1"]
+[gd_scene format=3 uid="uid://4wv8kx6hf88f"]
 
-[ext_resource type="Script" uid="uid://cgpixqiolp0af" path="res://Scripts/Particle.gd" id="1_d6jn2"]
-[ext_resource type="PackedScene" uid="uid://42sab3fe8vlj" path="res://Objects/Flash.tscn" id="2_d6jn2"]
+[ext_resource type="Script" uid="uid://cgpixqiolp0af" path="res://Scripts/Particle.gd" id="1_8eaw2"]
+[ext_resource type="PackedScene" uid="uid://42sab3fe8vlj" path="res://Objects/Flash.tscn" id="2_qfd5d"]
 
 [sub_resource type="Gradient" id="Gradient_vlej3"]
 offsets = PackedFloat32Array(0, 0.5, 0.7108434)
@@ -17,8 +17,8 @@ fill_to = Vector2(0, 0)
 radius = 16.27882
 
 [node name="Particle" type="Node2D" unique_id=195041873]
-script = ExtResource("1_d6jn2")
-flash = ExtResource("2_d6jn2")
+script = ExtResource("1_8eaw2")
+flash = ExtResource("2_qfd5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1590545100]
 texture = SubResource("GradientTexture2D_d6jn2")
