@@ -29,4 +29,26 @@ vertical_alignment = 2
 [node name="SkillBranch" type="Line2D" parent="." unique_id=661912530]
 z_as_relative = false
 
+[node name="HoverTextLabel" type="Label" parent="." unique_id=1112543843]
+visible = false
+layout_mode = 0
+offset_left = -20.0
+offset_top = -66.0
+offset_right = 91.30435
+offset_bottom = -2.0
+mouse_filter = 1
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="HoverTextLabel" unique_id=1022022118]
+z_index = -1
+layout_mode = 0
+offset_right = 141.0
+offset_bottom = 57.0
+mouse_filter = 1
+color = Color(0.19793725, 0.19793722, 0.19793722, 1)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="resized" from="HoverTextLabel" to="." method="_on_hover_text_label_resized"]

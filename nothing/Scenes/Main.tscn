@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://benmxghwa1t21"]
 
-[ext_resource type="Script" uid="uid://b10ny5yrkctm3" path="res://Scripts/Main.gd" id="1_idj7w"]
+[ext_resource type="Script" uid="uid://b10ny5yrkctm3" path="res://Scripts/MainScript.gd" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://ccuioo8a74pw1" path="res://Objects/Particle.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://4wv8kx6hf88f" path="res://Objects/AntiParticle.tscn" id="3_pbw6q"]
 [ext_resource type="Shader" uid="uid://bjsf3kysame7w" path="res://Shaders/Field.tres" id="3_rgh2o"]
@@ -24,8 +24,13 @@ position = Vector2(640, 360)
 scale = Vector2(1280, 720)
 texture = SubResource("CanvasTexture_rgh2o")
 
+[node name="Particles" type="Node2D" parent="." unique_id=1816589850]
+
+[node name="UpgradeTree" parent="." unique_id=1332004141 instance=ExtResource("5_pbw6q")]
+visible = false
+
 [node name="Scores" type="Node2D" parent="." unique_id=76170220]
-position = Vector2(680, 20)
+position = Vector2(640, 20)
 
 [node name="EscapedScoreLabel" type="RichTextLabel" parent="Scores" unique_id=317002895]
 offset_left = -77.0
@@ -51,8 +56,49 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeTree" parent="." unique_id=1332004141 instance=ExtResource("5_pbw6q")]
-offset_left = -1.0
-offset_top = -2.0
-offset_right = -1.0
-offset_bottom = -2.0
+[node name="SpawnRateLabel" type="RichTextLabel" parent="Scores" unique_id=749523718]
+offset_left = -109.0
+offset_top = 51.0
+offset_right = 114.0
+offset_bottom = 85.0
+text = "Paritcle Pairs Per Second: 0.0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeMenuButton" type="Button" parent="." unique_id=1515107062]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 125.0
+offset_bottom = 32.0
+text = "Upgrade Menu"
+
+[node name="WinText" type="RichTextLabel" parent="." unique_id=975114235]
+visible = false
+offset_left = 280.0
+offset_top = 139.0
+offset_right = 1003.0
+offset_bottom = 460.0
+text = "Congratulations!
+You have won the game and are ready to conquer the universe!
+Thank you for playing :D
+Hopefully it was a fun experience"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TutorialText" type="RichTextLabel" parent="." unique_id=737904556]
+offset_left = 276.0
+offset_top = 147.0
+offset_right = 999.0
+offset_bottom = 468.0
+text = "Welcome to the universe!
+We are at the quantum level where quantum fields permeate the fabric of space
+Pairs of particles and anti-particles continuously pop out of nothing in this domain
+Try clicking to spawn a pair
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="UpgradeMenuButton" to="." method="_on_upgrade_menu_button_button_down"]

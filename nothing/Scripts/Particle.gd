@@ -16,7 +16,7 @@ class_name Particle
 
 
 
-var main_scene: Main
+var main_scene: MainScript
 
 var time_alive: float = 0.0  # Time the particle has been alive
 
@@ -79,7 +79,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			var middle = (other_particle.position - position)*0.5 + position
 			var flash_instance = flash.instantiate()
 			flash_instance.position = middle
-			main_scene.add_child(flash_instance)
+			main_scene.add_particle(flash_instance)
 			#main_scene.annihilated_particles += 1
 			main_scene.add_annihilated_particles(1)
 		
